@@ -1,0 +1,257 @@
+/* App-specific styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Drag and drop animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.drag-active {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* File tree indentation */
+.file-tree-item {
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.file-tree-item:hover {
+  border-left-color: #3b82f6;
+}
+
+/* Code syntax highlighting adjustments */
+pre code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .cover-title {
+    font-size: 24pt;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  .card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Toast notifications */
+.sonner-toaster {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Badge colors */
+.badge-code {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-config {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.badge-text {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-markdown {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-slate {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Tab content transitions */
+[data-state="active"] {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tree view styles */
+.tree-line {
+  position: relative;
+}
+
+.tree-line::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #e2e8f0;
+}
+
+/* File type icons */
+.file-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.file-icon.js { background-color: #f7df1e; color: #333; }
+.file-icon.ts { background-color: #3178c6; }
+.file-icon.py { background-color: #3776ab; }
+.file-icon.java { background-color: #ed8b00; }
+.file-icon.cpp { background-color: #00599c; }
+.file-icon.c { background-color: #a8b9cc; color: #333; }
+.file-icon.go { background-color: #00add8; }
+.file-icon.rs { background-color: #dea584; color: #333; }
+.file-icon.json { background-color: #f7df1e; color: #333; }
+.file-icon.md { background-color: #333; }
+.file-icon.txt { background-color: #6b7280; }
+
+/* Progress bar animation */
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress-indeterminate::after {
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+/* Summary stats cards */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+/* Button focus states */
+button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Input focus states */
+input:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Focus within for cards */
+.card-focus:focus-within {
+  ring: 2px;
+  ring-color: #3b82f6;
+  ring-offset: 2px;
+}
