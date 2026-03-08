@@ -10,6 +10,7 @@ import { generateMarkdown } from '@/utils/markdownGenerator';
 import { parseFolder, type ParsedFile, type ParsedFolder, flattenFiles } from '@/utils/folderParser';
 import { calculateTotalEstimatedSize, formatFileSize, splitFilesIntoChunks, type SplitResult } from '@/utils/fileSplitter';
 import { FileManager } from '@/components/FileManager';
+import { RTSPGuide } from '@/components/RTSPGuide';
 import './App.css';
 
 interface FileStats {
@@ -355,10 +356,11 @@ function App() {
         </header>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 max-w-lg mx-auto mb-6">
+          <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto mb-6">
             <TabsTrigger value="upload">上传文件夹</TabsTrigger>
             <TabsTrigger value="preview" disabled={!parsedFolder}>文件预览</TabsTrigger>
             <TabsTrigger value="manage" disabled={!parsedFolder}>文件管理</TabsTrigger>
+            <TabsTrigger value="rtsp">RTSP 指南</TabsTrigger>
           </TabsList>
 
           <TabsContent value="upload">
@@ -715,6 +717,9 @@ function App() {
                 </Card>
               </div>
             )}
+          </TabsContent>
+          <TabsContent value="rtsp">
+            <RTSPGuide />
           </TabsContent>
         </Tabs>
 
